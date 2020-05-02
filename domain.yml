@@ -1,0 +1,209 @@
+intents:
+  - greet
+  - goodbye
+  - bot_challenge
+  - bill_deferment
+  - bill_redistribution
+  - online_charges_waived
+  - my_phone_is
+  - my_meter_reading_is
+  - my_bill_amount_is
+  - other_covid_queries
+  - are_you_servicing_customers
+  - safety_customer_fieldemployees
+  - affirm
+  - deny
+  - regular_customer_services
+  - pay_bill
+  - late_payment
+  - customer_support_initiatives
+  - how_to_pay_bill_online
+
+actions:
+- utter_how_to_pay_bill_online
+- utter_late_payment
+- utter_customer_support_initiatives
+- utter_greet
+- utter_cheer_up
+- utter_did_that_help
+- utter_happy
+- utter_goodbye
+- utter_iamabot
+- utter_greet2
+- utter_submit
+- utter_bill_redistribution
+- utter_ask_PHONENUM
+- utter_test_message
+- utter_ask_BILLAMOUNT
+- utter_ask_METERREADING
+- utter_incorrect_bill
+- utter_other_covid_queries
+- utter_safety_customer_fieldemployees
+- utter_are_you_servicing_customers
+- utter_regular_services
+- utter_pay_bill
+- utter_service_request_affirmation
+- utter_under_development
+- utter_what_else
+- utter_payment_gateway
+
+slots:
+  PHONENUM:
+    type: text
+  BILLAMOUNT:
+    type: text  
+  METERREADING:
+    type: text
+  NAME:
+    type: text
+
+entities:
+- PHONENUM
+- BILLAMOUNT
+- METERREADING
+- COMPANYNAME
+
+forms:
+  - deferment_form
+  - bill_redistribution_form
+  - bill_payment_form
+  - incorrect_bill_form
+  - pay_bill_form
+
+responses:
+  utter_how_to_pay_bill_online:
+  - text: It's super easy! I can redirect you to the payment portal. No Registration, only a hastle free payment experience
+    buttons: 
+    - title: "Take me to the payment portal"
+      payload: /pay_bill
+    
+
+  utter_customer_support_initiatives:
+  - text: "There will be no fine for late payment of bills, we have also waived off any cancellations till June for missing bill payments. There will be no transaction charges for online bill payments. Following are some additional plans you can subscribe to:"
+    buttons:
+    - title: "Bill Redistribution plan"
+      payload: /bill_redistribution
+    - title: "Defer Payment for a month"
+      payload: /bill_deferment
+
+  utter_late_payment:
+  - text: As an initiative to support out customers, the company has decided to waive off all the late payment fines. 
+    buttons:
+    - title: "I want to pay my bill"
+      payload: /pay_bill
+    - title: "Tell me about other customer support initiatives"
+      payload: /customer_support_initiatives
+
+  utter_payment_gateway:
+  - text: "Visit the following link to make payment https://infinitypower.com/payments"
+
+  utter_what_else:
+  - text: "Do you need help with anything else?"
+
+  utter_service_request_affirmation:
+  - text: "Do you want to raise a service request"
+
+  utter_under_development:
+  - text: "Current flow is under development"
+
+  utter_regular_services:
+  - text: "I can help you with the following:"
+    buttons:
+    - title: "Pay your bills"
+      payload: "/pay_bill"
+
+  utter_other_covid_queries:
+  - text: "I am frequently asked the following questions around COVID-19, shoot me with any other questions you might have as well."
+    buttons:
+    - title: "Are you still providing field services?"
+      payload: /are_you_servicing_customers
+    - title: "How do we ensure safety of our field employees?"
+      payload: /safety_customer_fieldemployees
+
+  utter_greet:
+  - text: "Hey! I am Donald, a virutal customer service agent. You can raise any of your concerns with me. You would want to know about our COVID-19 support initiatives for our customers."
+    buttons:
+    - title: "Know more about bill defferement plan"
+      payload: /bill_deferment
+    - title: "Know more about bill redistribution plan"
+      payload: /bill_redistribution
+    - title: "Other COVID-19 queries"
+      payload: /other_covid_queries   
+    - title: "Regular Customer Services"
+      payload: /regular_customer_services
+
+  utter_greet2:
+  - text: "I can also help you pay your bill or any service issues that you might be encountering."
+  utter_cheer_up:
+  - text: "Here is something to cheer you up:"
+    image: "https://i.imgur.com/nGF1K8f.jpg"
+
+  utter_did_that_help:
+  - text: "Did that help you?"
+
+  utter_happy:
+  - text: "Great, carry on!"
+
+  utter_goodbye:
+  - text: "Bye"
+
+  utter_iamabot:
+  - text: "I am a bot, powered by Rasa."
+
+  utter_submit:
+  - text: "Form has been successfully submited"
+
+  utter_ask_PHONENUM:
+  - text: "Please tell me your registered phone number"
+
+  utter_ask_BILLAMOUNT:
+  - text: "Please tell me your the bill amount you are supposed to pay"
+
+  utter_ask_METERREADING:
+  - text: "Please tell me the meter reading mentioned in the bill"
+
+  utter_test_message:
+  - text: "Yes this works buddy" 
+
+  utter_bill_payment_link:
+  - text: "Please visit the following payment portal to pay the bill https://infinityenergy/paybill/"
+
+  utter_incorrect_bill:
+  - text: "successfully raised request for a bill correction, an agent will soon contact you"
+
+  utter_bill_redistribution:
+  - text: "Good work"
+
+  utter_safety_customer_fieldemployees:
+  - text: As we continue to provide essential services to our customers, we are taking
+      additional steps to protect our customers and employees. One way you can help
+      is by letting us know if there is someone in your home experiencing illness
+      when scheduling your service call. Additionally, our employees are practicing
+      enhanced cleanliness protocols, social distancing (no handshakes or high-fives),
+      utilizing personal protective equipment as needed, and staying informed with
+      the latest information from the CDC.
+  utter_are_you_servicing_customers:
+  - text: Yes, as an essential services business, we are continuing to schedule new
+      appointments for repairs and maintenace. Would you like me to schedule an appointment?
+    buttons:
+    - title: "Yes"
+      payload: /affirm
+    - title: "No"
+      payload: /deny
+
+  utter_yes_to_book_request:
+  - text: "I can help you book an appointment for the following, please select one"
+    buttons:
+    - title: "Meter inspection"
+      payload: /affirm
+    - title: "Move-in request"
+      payload: /deny
+    - title: "Move-out request"
+      payload: /goodbye
+  utter_pay_bill:
+  - text: "Pay Bill, like really?"
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+
